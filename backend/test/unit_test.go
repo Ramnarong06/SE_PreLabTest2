@@ -23,3 +23,33 @@ func TestUnitUser(t *testing.T) {
 		g.Expect(err).To(BeNil())
 	})
 }
+
+func TestUnitEmailUser(t *testing.T){
+	g := NewGomegaWithT(t)
+	t.Run("Email error", func(t *testing.T){
+		user := entity.User{
+			Username:  	"Ramnarong",
+			Email:	  	"b6513214",
+			Password:	"123456",
+		}
+		ok, err := govalidator.ValidateStruct(user)
+		g.Expect(ok).NotTo(BeTrue())
+		g.Expect(err).NotTo(BeNil())
+		g.Expect(err.Error()).To(Equal("Email is invalid")) // ข้อความที่กำหนดใน Entity
+	})
+}
+
+func TestUnitUserName(t *testing.T){
+	g := NewGomegaWithT(t)
+	t.Run("Username error", func(t *testing.T){
+		user := entity.User{
+			Username:  	"",
+			Email:	  	"b6513214@gmail.com",
+			Password:	"123456",
+		}
+		ok, err := govalidator.ValidateStruct(user)
+		g.Expect(ok).NotTo(BeTrue())
+		g.Expect(err).NotTo(BeNil())
+		g.Expect(err.Error()).To(Equal("Username is required"))
+	})
+}
