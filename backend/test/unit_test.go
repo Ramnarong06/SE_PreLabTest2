@@ -43,7 +43,7 @@ func TestUnitUserName(t *testing.T){
 	g := NewGomegaWithT(t)
 	t.Run("Username error", func(t *testing.T){
 		user := entity.User{
-			Username:  	"",
+			Username:  	"", // ผิดตรงนี้
 			Email:	  	"b6513214@gmail.com",
 			Password:	"123456",
 		}
