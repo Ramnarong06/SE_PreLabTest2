@@ -1,4 +1,4 @@
-package uint
+package unit
 
 import (
 	"testing"
@@ -10,7 +10,7 @@ import (
 
 )
 
-func TestUintUser(t *testing.T) {
+func TestUnitUser(t *testing.T) {
 	g := NewGomegaWithT(t)
 	t.Run("Correct", func(t *testing.T){
 		user := entity.User{
