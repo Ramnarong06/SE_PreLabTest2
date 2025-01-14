@@ -29,7 +29,7 @@ func TestUnitEmailUser(t *testing.T){
 	t.Run("Email error", func(t *testing.T){
 		user := entity.User{
 			Username:  	"Ramnarong",
-			Email:	  	"b6513214",
+			Email:	  	"b6513214", // ผิดตรงนี้
 			Password:	"123456",
 		}
 		ok, err := govalidator.ValidateStruct(user)
